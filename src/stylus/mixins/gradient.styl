@@ -1,0 +1,37 @@
+/**
+ * -----------------------------------------
+ * gradient
+ * -----------------------------------------
+ */
+// @stylint off
+@require 'invariantType'
+@require 'invariant'
+
+/**
+ * Двухцветный линейный градиент по оттенку
+ *
+ * @param {Color} $color цвет градиента
+ * @param {(Percent|Number)} $range диапозон перехода градиента
+ * @param {(top|bottom|left|right)=} $direction направление градиента
+ * @param {Boolean=} $invert true — цвет окончания темнее чем цвет начала градиента
+ *
+ * @example
+ * gradient(#ccc, 20%)
+ * gradient(#ccc, 20)
+ * gradient(#ccc, 20, true)
+ */
+gradient($color, $range, $direction = 'bottom', $invert = false)
+  if $direction == true
+    $invert = true
+    $direction = 'bottom'
+  invariantType($color, ('rgba' 'hsla'), 'gradient(): $color должен быть одним из типов: %s')
+  invariantType($range, ('number' '%'), 'gradient(): $range должен быть одним из типов: %s')
+  invariantType($direction, 'string', 'gradient(): $direction должен быть %s')
+  invariant($direction in ('top' 'bottom' 'left' 'right'), 'gradient(): $direction может принимать только значения: top, bottom, left, right')
+  invariantType($invert, 'boolean', 'gradient(): $invert должен быть типа %s')
+  $startColor = $color
+  $endColor = tint($color, $range)
+  if $invert
+    $startColor = shade($color, $range)
+    $endColor = $color
+  background: linear-gradient($direction, $startColor, $endColor)

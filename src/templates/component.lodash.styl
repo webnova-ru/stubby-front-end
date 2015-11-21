@@ -1,0 +1,7 @@
+<% _.each(data, function(fileItem) { %>
+/**
+ * React component: <%= fileItem.path %>
+ */
++frameScope('<%= fileItem.params.prefix %>')
+  @require '<%= fileItem.path %>'
+<% }); %>

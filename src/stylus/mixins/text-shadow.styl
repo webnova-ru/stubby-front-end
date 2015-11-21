@@ -1,0 +1,20 @@
+/**
+ * -----------------------------------------
+ * text-shadow
+ * -----------------------------------------
+ */
+// @stylint off
+/**
+ * one-pixel text-shadow
+ *
+ * @param {(Color|*)} $color
+ *
+ * @example
+ * text-shadow(#ccc) // текст с однопиксельным бордуром
+ * text-shadow(1px 2px 1px #ccc) // текст с произвольной тенью
+ */
+text-shadow($color, args...)
+  if $color is a 'color'
+    text-shadow: 0 1px 0 $color args
+  else
+    text-shadow: arguments

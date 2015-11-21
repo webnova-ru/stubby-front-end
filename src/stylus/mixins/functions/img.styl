@@ -1,0 +1,21 @@
+/**
+ * -----------------------------------------
+ * img
+ * -----------------------------------------
+ */
+// @stylint off
+@require '../invariant'
+@require '../invariantType'
+
+/**
+ * Альтернатива url() с подставленной директории картинок
+ *
+ * @param {String} $imgPath имя картинки c расширением
+ *
+ * @example
+ * background: img('business.png') center center no-repeat
+ */
+img($imgPath)
+  invariantType($imgPath, 'string', 'img(): $imgPath не верный тип, ожидается %s')
+  invariant(!!$G.path.img, 'img(): $G.path.img не назначена! Задайте эту переменную и повторите сборку')
+  url(pathjoin($G.path.img, $imgPath))

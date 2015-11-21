@@ -1,0 +1,7 @@
+./!(src)/**/__test__/*.test.js
+--recursive
+--require ./gulp/lib/mochaHelper
+--reporter dot
+--ui bdd
+--color
+--growl

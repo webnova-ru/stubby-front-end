@@ -1,0 +1,22 @@
+/**
+ * -----------------------------------------
+ * App component styles
+ * -----------------------------------------
+ */
+
+body
+  background-image: img('App_bg.png')
+
+.app
+  min-width: 960px
+  background-image: img('App_bg.png')
+
+.app__content,
+.app__menu
+  transition: .3s
+
+.app_openLeftMenu .app__content
+  padding-left: $G.layout.leftMenuWidth
+
+.app_openLeftMenu .app__menu
+  left: 0

@@ -1,0 +1,41 @@
+/**
+ * -----------------------------------------
+ * triangle
+ * -----------------------------------------
+ */
+// @stylint off
+@require 'invariantType'
+@require 'invariant'
+
+/**
+ * Треугольнички
+ *
+ * @param {(top|bottom|left|right)} $direction сторона куда указывает стрелочка
+ * @param {(Number|px)} $size размер стрелочки
+ * @param {Color=} $color
+ */
+triangle($direction, $size = 5px, $color = #CCC)
+  invariantType($direction, 'string', 'triangle(): $direction должен быть %s')
+  invariant($direction in ('top' 'bottom' 'left' 'right'), 'triangle(): $direction может принимать только значения: top, bottom, left, right')
+  invariantType($size, ('number' 'px'), 'triangle(): $size должен быть одним из типов: %s')
+  invariantType($color, ('rgba' 'hsla'), 'triangle(): $color должен быть одним из типов: %s')
+  display: inline-block
+  width: 0
+  height: 0
+  border: unit($size, px) solid transparent
+  if $direction == 'top'
+    border-bottom-color: $color
+    border-top: none
+    position: relative
+    top: ceil($size / -2)
+  if $direction == 'bottom'
+    border-top-color: $color
+    border-bottom: none
+    position: relative
+    top: ceil($size / -2)
+  if $direction == 'left'
+    border-right-color: $color
+    border-left: none
+  if $direction == 'right'
+    border-left-color: $color
+    border-right: none

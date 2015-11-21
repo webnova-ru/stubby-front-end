@@ -1,0 +1,123 @@
+/**
+ * -----------------------------------------
+ * grids class
+ * -----------------------------------------
+ */
+
+// local variables
+$glitter = $G.unit
+
+// styles
+.grid
+  display: flex
+  flex-flow: row nowrap
+  margin-left: -1 * $glitter
+  letter-spacing: -0.31em
+  white-space: nowrap
+  *letter-spacing: normal
+  *word-spacing: -0.43em
+  text-rendering: optimizespeed
+  font-family: FreeSans, Arimo, 'Droid Sans', Helvetica, Arial, sans-serif
+
+.opera-xuera:-o-prefocus,
+.grid
+  word-spacing: -0.43em
+
+.grid_direction_wrap
+  flex-wrap: wrap
+  white-space: normal
+
+.grid_align_center
+  justify-content: center
+  text-align: center
+
+.grid_align_justify
+  flex-wrap: wrap
+  justify-content: space-between
+  text-align: justify
+  white-space: normal
+  &:after
+    display: inline-block
+    width: 100%
+    content: ''
+
+.grid__unit,
+.grid__1of1,
+.grid__1of2,
+.grid__1of3,
+.grid__2of3,
+.grid__1of4,
+.grid__2of4,
+.grid__3of4,
+.grid__1of5,
+.grid__2of5,
+.grid__3of5,
+.grid__4of5,
+.grid__1of6,
+.grid__2of6,
+.grid__3of6,
+.grid__4of6,
+.grid__5of6
+  display: inline-block
+  *display: inline
+  box-sizing: border-box
+  padding-left: $glitter
+  vertical-align: top
+  text-rendering: auto
+  text-align: left
+  white-space: normal
+  word-spacing: normal
+  letter-spacing: normal
+  font-family: $G.typo.family
+  zoom: 1
+
+.grid__1of2,
+.grid__2of4,
+.grid__3of6
+  width: 50%
+  *width: 49.9690%
+
+.grid__1of3,
+.grid__2of6
+  width: 33.3333%
+  *width: 33.3023%
+
+.grid__2of3,
+.grid__4of6
+  width: 66.6667%
+  *width: 66.6357%
+
+.grid__1of4
+  width: 25%
+  *width: 24.9690%
+
+.grid__3of4
+  width: 75%
+  *width: 74.9690%
+
+.grid__1of5
+  width: 20%
+  *width: 19.9690%
+
+.grid__2of5
+  width: 40%
+  *width: 39.9690%
+
+.grid__3of5
+  width: 60%
+  *width: 59.9690%
+
+.grid__4of5
+  width: 80%
+  *width: 79.9690%
+
+.grid__1of6
+  width: 16.6667%
+  *width: 16.6357%
+
+.grid__5of6
+  width: 83.3333%
+  *width: 83.3023%
+
+.grid__1of1
+  width: 100%

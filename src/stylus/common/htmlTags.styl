@@ -1,0 +1,154 @@
+/**
+ * -----------------------------------------
+ * html tags styles
+ * -----------------------------------------
+ */
+
+// local variables
+$lh = $G.typo.line-height
+
+// styles
+html,
+body
+  min-height: 100%
+
+body
+  font: s('%s/%s', $G.typo.size, $lh) $G.typo.family
+  color: $G.color.text
+  background-color: $G.color.bg
+
+p, dl
+  margin: 0 0 $lh 0
+  font-size: 1em
+
+h1
+  margin: $lh 0 0
+  font-size: $G.typo.large
+  line-height: ceil(2 * $lh)
+
+h2,
+h3,
+h4,
+h5,
+h6
+  margin: $lh 0 0
+  font-size: $G.typo.middle
+  line-height: $lh
+
+a
+  border-bottom: 1px solid tint($G.color.link, 60%)
+  color: $G.color.link
+  text-decoration: none
+  &:hover
+    border-bottom-color: tint($G.color.link-hover, 60%)
+    color: $G.color.link-hover
+
+// цвет выделенного текста
+::-moz-selection,
+::selection
+  background: $G.color.text-select
+  text-shadow: none
+
+ul,
+ol,
+ul ul,
+ol ol,
+ul ol,
+ol ul
+  margin: 0 0 0 $lh
+  padding-left: 0
+
+ol ol li
+  list-style-type: lower-alpha
+
+ol ol ol li
+  list-style-type: lower-roman
+
+nav ul, nav ol
+  margin: 0
+  padding-left: 0
+
+p + ul,
+p + ol
+  margin-top: (-1 * $lh)
+
+abbr[title],
+dfn[title]
+  border-bottom: 1px dotted $G.color.text
+  cursor: help
+
+ins,
+mark
+  background-color: #ffee55
+  color: $G.color.text
+  text-decoration: none
+
+dl dt
+  font-weight: bold
+
+dd
+  margin-left: 1em
+
+pre,
+code,
+kbd,
+samp
+  font-family: Menlo, Monaco, monospace, sans-serif
+
+hr
+  display: block
+  height: 1px
+  margin: 0
+  border: 0
+  border-top: 1px solid $G.color.palceholder
+
+figcaption
+  font-size: .85em
+  font-style: italic
+
+// стили форм
+button,
+input,
+select,
+textarea
+  font-family: $G.typo.family
+
+input:-moz-placeholder,
+textarea:-moz-placeholder
+  color: $G.color.palceholder
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder
+  color: $G.color.palceholder
+
+[disabled]
+  cursor: default !important
+
+code
+  display: inline-block
+  padding: 3px
+  border: 1px solid #ddd
+  font-size: .85em
+  line-height: 1
+  background: #f8f8f8
+
+pre
+  padding: $G.unit - 1
+  border: 1px solid #ddd
+  border-radius($G.round)
+  overflow: auto
+  white-space: pre
+  background: #f8f8f8
+
+kbd
+  padding: 0 6px
+  border-radius($G.round)
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2)
+  border-width: 1px 1px medium
+  border-style: solid solid none
+  border-color: #ccc
+  color: #444
+  white-space: nowrap
+  font-weight: bold
+  line-height: 1
+  background-color: #fafafa

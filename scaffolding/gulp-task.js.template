@@ -1,0 +1,42 @@
+'use strict';
+
+/**
+ * <%= fileName %>
+ *
+ * @example
+ * $ gulp <%= fileName %>
+ *
+ * @module <%= fileWithoutExt %>
+ * @type {Task}
+ */
+
+/**
+ * Зависимости модуля
+ */
+var gulp = require('gulp'),
+    Task = require('../lib/Task');
+
+/**
+ * Создаем таск с нужным именем и конфигурационными данными
+ *
+ * @type {Task}
+ */
+module.exports = new Task({
+    name: '<%= fileName %>',
+
+    //src: 'html/**/*.html',
+    //dest: './',
+    //watch: 'html/**/*.html',
+
+    //plugins: {
+    //},
+
+    /**
+     * Логика и определение задачи для gulp-a
+     */
+    define: function () {
+        gulp.task(this.name, function (cb) {
+            console.log('это простой тестовый таск под именем ' + this.name);
+        }.bind(this));
+    }
+});

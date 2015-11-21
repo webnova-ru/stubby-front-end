@@ -1,0 +1,19 @@
+/**
+ * -----------------------------------------
+ * common mixins
+ * -----------------------------------------
+ */
+// @stylint off
+@require 'invariantType'
+
+/**
+ * side element
+ *
+ * @param {Number=} $left
+ * @param {Number=} $top
+ */
+side($left = 0, $top = 0)
+  invariantType($left, ('number' 'px' '%'), 'side(): $left должен быть одним из типов: %s')
+  invariantType($top, ('number' 'px' '%'), 'side(): $top должен быть одним из типов: %s')
+  left: $left
+  top: $top

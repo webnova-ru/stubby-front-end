@@ -1,0 +1,67 @@
+/**
+ * -----------------------------------------
+ * global variables config
+ * -----------------------------------------
+ */
+// @stylint off
+/**
+ * Глобальная переменная, которую использует nib.
+ * Включает некоторую поддержку ie в nib-миксимах
+ */
+support-for-ie ?= true
+
+/**
+ * Глобальный объект со всеми натройками проекта
+ *
+ * @example
+ * color: $G.color
+ * font-size: $G.typo.size
+ *          ^---- двоеточие обязательно, иначе не работают хеш-объекты
+ */
+$G = {
+  unit: 20px
+  round: 3px
+
+  path: {
+    img: '../img/'
+    base64: '../img/base64/'
+  }
+
+  support-for-ie: support-for-ie
+
+  typo: {
+    line-height: 22px
+    family: s('"PT Sans", "Trebuchet MS", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif')
+    size: 15px
+    small: 11px
+    middle: 18px
+    large: 24px
+    btnFontSize: 15px
+  }
+
+  layout: {
+    headerHeight: 42px
+    leftMenuWidth: 240px
+  }
+
+  color: {
+    bg: hsl(202, 4, 94)
+    text: hsl(197, 7, 30)
+    text-select: yellow
+    link: hsl(197, 50, 35)
+    link-hover: hsl(15, 52, 42)
+    border: hsl(197, 7, 55)
+    disabled: hsl(197, 30, 96)
+    glow: hsl(185, 75, 70)
+    palceholder: #CCC
+    success: hsl(110, 70, 40)
+    error: hsl(15, 55, 50)
+    active: hsl(45, 70, 80)
+  }
+}
+$G.color.ghost = lighten($G.color.text, 30%)
+$G.unit1of4 = ceil($G.unit / 4)
+$G.unit1of2 = ceil($G.unit / 2)
+// некоторые алиасы
+$G.unit-half = $G.unit1of2
+$G.half-unit = $G.unit1of2

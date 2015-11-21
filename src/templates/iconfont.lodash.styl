@@ -1,0 +1,43 @@
+  /**
+ * -----------------------------------------
+ * iconfont
+ * -----------------------------------------
+ */
+
+// styles
+@font-face
+  font-family: "<%= fontName %>"
+  font-weight: normal
+  font-style: normal
+  src: url('<%= fontPath %><%= fontName %>.eot')
+  src: url('<%= fontPath %><%= fontName %>.eot?#iefix') format('eot'),
+  url('<%= fontPath %><%= fontName %>.woff') format('woff'),
+  url('<%= fontPath %><%= fontName %>.ttf') format('truetype'),
+  url('<%= fontPath %><%= fontName %>.svg#<%= fontName %>') format('svg')
+
+.<%= className %>
+  &:before
+    display: inline-block
+    font-family: "<%= fontName %>"
+    font-style: normal
+    font-weight: normal
+    line-height: 1
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+<% _.each(glyphs, function (glyph) { %>
+  &_<%= glyph.name %>:before
+    content: "\<%= glyph.codepoint.toString(16).toUpperCase() %>"
+<% }); %>
+  &_lg
+    vertical-align: -15%
+  &_size_2x
+    font-size: 2em
+  &_size_3x
+    font-size: 3em
+  &_size_4x
+    font-size: 4em
+  &_size_5x
+    font-size: 5em
+  &_fw
+    width: 1.2857142857142858em
+    text-align: center

@@ -1,0 +1,30 @@
+/**
+ * -----------------------------------------
+ * floats class
+ * -----------------------------------------
+ */
+
+// styles
+.clearfix
+  clearfix()
+
+.left
+  display: block
+  float: left
+  margin-right: $G.unit
+
+.right
+  display: block
+  float: right
+  margin-left: $G.unit
+
+.left img,
+.right img,
+img.left,
+img.right
+  position: relative
+  top: .4em
+
+figure.left img + figcaption,
+figure.right img + figcaption
+  margin-top: .3em

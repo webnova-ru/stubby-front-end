@@ -1,0 +1,27 @@
+/**
+ * -----------------------------------------
+ * Основной "отправной" файл сборки Stylus
+ * -----------------------------------------
+ */
+// @stylint off
+@require 'vars'
+@require 'mixins'
+
+// подключаем нужные файлы, каждый файл будет находиться своей области видимости
+requireInFrameScope(
+  'common/normalize', // common
+  'common/htmlTags',
+  'common/floats',
+  'common/grids',
+
+  $_COMPONENTS_PATH, // подключает styl-файлы из react-компонентов
+  $_ICONFONT_PATH,         // iconfont: подключаем styl-файл для собранного шрифта
+
+  'project/index', // произвальные стили проекта
+
+  'globalMods/spacer' '_',  // global modificators,
+  'globalMods/padding' '_', // все классы начинаются с префикса "_", например: <b class="_spacer">...</b>
+  'globalMods/rounds' '_',
+  'globalMods/typography' '_',
+  'globalMods/misc' '_'
+)

@@ -1,0 +1,48 @@
+/**
+ * -----------------------------------------
+ * Simple component stylus
+ * -----------------------------------------
+ */
+
+// local module variables
+$borderColor = #CCC
+
+// styles
+.simple
+  margin-top: $G.unit
+
+.simple__image
+  width: 100px
+  height: 100px
+  border: $borderColor
+  background: url("../img/avatar.png") no-repeat center
+
+.simple__base64
+  width: 50px
+  height: 50px
+  border: $borderColor
+  background: base64('rocket.png') no-repeat center
+
+.simple__iconfont
+  width: 100px
+  height: 20px
+  border: $borderColor
+  padding: 10px
+  font-size: 20px
+
+.simple__sprite
+  width: 130px
+  padding: 10px
+  border: $borderColor
+
+
+.simple__visa
+  display: inline-block
+  sprite('icons', 'visa')
+
+.simple__vespa
+  display: inline-block
+  sprite('test_sprite', 'vespa')
+
+
+

@@ -1,0 +1,34 @@
+/**
+ * -----------------------------------------
+ * Sprite
+ * -----------------------------------------
+ */
+// @stylint off
+@require 'invariantType'
+
+/**
+ * @param {String} $spriteName имя спрайта или путь до картинки в папке со спрайтами
+ * @param {(String|Boolean)=} $imgName имя изображения или флаг добавления размера картинки
+ * @param {Boolean=} $addImgSize если true, то проставляется размер картинки
+ *
+ * @example
+ * sprite('spriteName/spriteImgName.png')
+ * sprite('spriteName/spriteImgName.png', false) // не добавляет width, height картинки
+ * sprite('spriteName', 'spriteImgName')
+ * sprite('spriteName', 'spriteImgName', false)
+ */
+sprite($spriteName, $imgName = true, $addImgSize = true)
+  invariantType($spriteName, 'string', 'sprite($spriteName, ...): $spriteName имеет не верный тип')
+  invariantType(getSpriteDir, 'function', 'sprite(): getSpriteDir должна быть функцией и определена из gulp-таска')
+  $spriteDir = getSpriteDir()
+  $img = $spriteName
+  if type($imgName) is 'string'
+    // спрайтами могут становиться только png-изображения, смело можно добавить расширение .png, если оно не задано
+    $img = pathjoin($spriteName, basename($imgName, extname($imgName)) + '.png')
+  else
+    $addImgSize = $imgName
+  background-image: url(pathjoin($spriteDir, $img))
+  if $addImgSize is true
+    $imgSize = image-size(pathjoin($spriteDir, $img))
+    width: $imgSize[0]
+    height: $imgSize[1]

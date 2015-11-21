@@ -1,0 +1,21 @@
+/**
+ * -----------------------------------------
+ * base64-encoding images
+ * -----------------------------------------
+ */
+// @stylint off
+@require '../invariant'
+@require '../invariantType'
+
+/**
+ * Подготавливает преобразование каритнки в base-64 представление
+ *
+ * @param {String} $img имя картинки, которую хотим преобразовать
+ *
+ * @example
+ * background: base64('business.png') center center no-repeat
+ */
+base64($img, args...)
+  invariantType($img, 'string', 'base64($img, ...): $img не верный тип')
+  invariant(!!$G.path.base64, 'base64(): $G.path.base64 не назначена! Задайте эту переменную и повторите сборку')
+  url(pathjoin($G.path.base64, $img))

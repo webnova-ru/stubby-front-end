@@ -1,0 +1,35 @@
+/**
+ * -----------------------------------------
+ * Rounds class
+ * -----------------------------------------
+ */
+
+// local module variables
+$round = 111px
+
+// styles
+.round
+  border-radius: $round !important
+
+.round_l,
+.round_left
+  border-radius: $round 0 0 $round !important
+
+.round_r,
+.round_right
+  border-radius: 0 $round $round 0 !important
+
+.round_null,
+.round_null:before,
+.round_null:after
+  border-radius(0 !important)
+
+.round_null-l,
+.round_null-l:before,
+.round_null-l:after
+  border-radius(left 0 !important)
+
+.round_null-r,
+.round_null-r:before,
+.round_null-r:after
+  border-radius(right 0 !important)

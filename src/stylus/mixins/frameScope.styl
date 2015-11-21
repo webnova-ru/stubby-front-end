@@ -1,0 +1,22 @@
+/**
+ * -----------------------------------------
+ * frameScope
+ * -----------------------------------------
+ */
+// @stylint off
+/**
+ * Позволяет инкапсулировать все переменные в теле миксима({block})
+ * и не плодить их глобально
+ *
+ * @param {String=} $classPrefix префикс перед всеми классами в теле миксима
+ *
+ * @example
+ * +isolate-scope()
+ *   @require 'components/component-name'
+ */
+frameScope($classPrefix = '')
+  if type($classPrefix) is 'string' and $classPrefix is not ''
+    +prefix-classes($classPrefix)
+      {block}
+  else
+    {block}

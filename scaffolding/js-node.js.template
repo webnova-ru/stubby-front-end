@@ -1,0 +1,19 @@
+'use strict';
+
+/**
+ * <%= fileName %>
+ *
+ * @module <%= fileWithoutExt %>
+ * @type {Function}
+ */
+
+/**
+ * Зависимости модуля
+ */
+
+
+var <%= fileName %> = function () {
+
+};
+
+module.exports = <%= fileName %>;

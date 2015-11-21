@@ -1,0 +1,34 @@
+/**
+ * -----------------------------------------
+ * setFrameScopes
+ * -----------------------------------------
+ */
+// @stylint off
+@require 'frameScope'
+
+/**
+ * Подключает файлы по типу @require только в изолирванной области видимости
+ *
+ * @param {String} $filePaths... путь до файлов, которые нужно подключить
+ * @param {String=} $classPrefix префикс перед всеми классами в теле миксима
+ *
+ * @example
+ * requireInFrameScope('dir/file')
+ * requireInFrameScope('dir/file1', 'dir/file2')
+ * requireInFrameScope('-prefix-' 'dir/file1', '-prefix2-' 'dir/file2')
+ * requireInFrameScope('dir/file1', 'dir/file2', $classPrefix: '-prefix-')
+ * requireInFrameScope($classPrefix: '-prefix-', 'dir/file1', '-prefix2-' 'dir/file2')
+ */
+requireInFrameScope($filePaths..., $classPrefix = null)
+  unless mixin is 'root'
+    error('requireInFrameScope(): должен вызываться не в блочной области видимости')
+  $_classPrefix = $classPrefix
+  for $currFile in $filePaths
+    if length($currFile) > 1
+      $classPrefix = $currFile[1]
+      $currFile = $currFile[0]
+    else
+      $classPrefix = $_classPrefix
+    if type($currFile) is 'string' and $currFile is not ''
+      +frameScope($classPrefix)
+        @require $currFile

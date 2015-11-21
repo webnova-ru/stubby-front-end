@@ -1,0 +1,70 @@
+/**
+ * -----------------------------------------
+ * Slide menu
+ * -----------------------------------------
+ */
+
+// local module variables
+$linkColor = hsl(40, 40, 75)
+$bgColor = #333
+$spacerColor = lighten($bgColor, 10%)
+$activeLinkColor = lighten($linkColor, 50%)
+$activeBgColor = darken($bgColor, 20%)
+$width = $G.layout.leftMenuWidth
+$whiteColor = #FFF
+
+// styles
+.slide-menu
+  position: fixed
+  top: 0
+  left: (-1 * $width) - 3
+  z-index: 10
+  width: 240px
+  height: 100%
+  box-sizing: border-box
+  padding: 0 0 $G.unit 0
+  color: $whiteColor
+  text-shadow: 0 1px 1px darken($bgColor, 20)
+  background-color: $bgColor
+  box-shadow: -2px 0 7px darken($bgColor, 40%)
+
+.slide-menu__block
+  margin-bottom: 2 * $G.unit
+
+.slide-menu__header
+  margin-bottom: ceil(1.5 * $G.unit)
+  padding: $G.half-unit
+  border-bottom: 1px solid $spacerColor
+  font-weight: bolder
+  text-transform: uppercase !important
+  letter-spacing: .12em
+  text-align: center
+  font-size: 12px
+
+.slide-menu__title
+  display: block
+  padding: 0 $G.half-unit $G.unit1of4
+  font-weight: bolder
+
+.slide-menu__list
+  margin: 0
+  border-top: 1px solid $spacerColor
+  list-style: none
+
+.slide-menu__item
+  border-bottom: 1px solid $spacerColor
+
+.slide-menu__link
+  display: block
+  padding: $G.half-unit
+  border: none
+  color: $linkColor
+  transition: .3s
+  &:hover
+    color: $activeLinkColor
+    background-color: $activeBgColor
+
+.slide-menu__link_state_active
+  border-left: 2px solid darken($linkColor, 30%)
+  color: $activeLinkColor
+  background-color: $activeBgColor

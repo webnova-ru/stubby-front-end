@@ -1,0 +1,46 @@
+/**
+ * -----------------------------------------
+ * invariantType
+ * -----------------------------------------
+ */
+// @stylint off
+/**
+ * Проверка типов, если типы не совпадают программа останавливается с ошибкой
+ *
+ * Возможные значения, которые могут быть у параметра $expectTypes:
+ * Основные: 'function', 'object', 'string', 'boolean', 'number', 'ident', 'unit'
+ * color: 'rgba', 'hsla'
+ * relative lengths: 'em', 'ex', 'ch', 'rem'
+ * relative viewport-percentage lengths: 'vw', 'vh', 'vmin', 'vmax'
+ * absolute lengths: 'cm', 'mm', 'in', 'pt', 'pc', 'px'
+ * angles: 'deg', 'grad', 'rad', 'turn'
+ * times: 's', 'ms'
+ * frequencies: 'Hz', 'kHz'
+ * resolutions: 'dpi', 'dpcm', 'dppx', 'x'
+ * percentage type: '%'
+ * grid-layout (http://www.w3.org/TR/css3-grid-layout/): 'fr'
+ *
+ * @param {*} $value переменная у которой хотим проверить тип
+ * @param {String} $expectTypes ожидаемый тип
+ * @param {String=} $msg сообщение в консоль, если в строке встречается %s, меняет его на список типов
+ *
+ * @example
+ * invariantType('text', 'string')
+ * invariantType(10%, ('number' '%' 'px'), 'сообщение об ошибке')
+ * invariantType(10px, 'px', 'fn()')
+ * invariantType(1223, 'number', 'FnNameFromCall()')
+ */
+invariantType($value, $expectTypes, $msg = '')
+  $type = type($value)
+  // если $expectTypes список, преобразовываем его в строку таким образом:
+  $replacement = '' + $expectTypes
+  $msg = replace('%s', $replacement, ($msg or 'Ошибка типа! Ожидается тип %s'))
+  unless $type in $expectTypes
+    if $type == 'unit'
+      $type = unit($value)
+      if $type == ''
+        $type = 'number'
+      unless $type in $expectTypes
+        error($msg)
+    else
+      error($msg)

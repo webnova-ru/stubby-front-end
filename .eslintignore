@@ -1,0 +1,8 @@
+# Generated content
+_build/
+_dest/
+_temp/
+_release/
+
+# NPM packages folder
+node_modules/

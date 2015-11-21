@@ -1,0 +1,31 @@
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+
+# NPM packages folder
+node_modules
+
+# OS or Editor folders
+.DS_Store
+.idea
+.cache
+.project
+.settings
+.tmproj
+.nvmrc
+Thumbs.db
+npm-debug.log
+
+# Generated content
+_dest
+_temp
+_release
+
+#misc
+TODO.md

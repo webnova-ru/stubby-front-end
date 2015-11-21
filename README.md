@@ -71,8 +71,8 @@ $ git clone https://github.com/webnova-ru/stubby-front-end.git dirName && \
   npm install && \
   npm run set-tools
 ```
-`dirName` - имя папки куда клонируется проект,\s
-`https://github.com/yourGitName/yourProject` - url вашего будущего проекта\s
+`dirName` - имя папки куда клонируется проект,  
+`https://github.com/yourGitName/yourProject` - url вашего будущего проекта
 
 Руководство по использованию
 ------------
@@ -142,39 +142,39 @@ $ git clone https://github.com/webnova-ru/stubby-front-end.git dirName && \
 1. Создадим новую директорию с именем нового спрайта в папке `src/media/sprites`:
 ``` bash
 $ mkdir ./src/media/sprites/newSpriteName
-```
+```  
 2. Добавьте изображения в эту новую директорию:
 ``` bash
 $ cp -a ~/yourFolder/withImages ./src/media/sprites/newSpriteName
-```
+```  
 3. Подключим спрайт в стилях:
 ``` stylus
 .someClassName
   sprite('newSpriteName', 'imageNameFromNewSpriteDir')
-```
+```  
 4. Пересоберем стили: `gulp stylus`. Все, спрайт работает.
 
 Работа с иконочными шрифтами:  
 1. Добавьте новую svg-иконку формата 500x500px в директорию `src/media/iconfont/appIcons`:
 ``` bash
 $ cp ~/yourFolder/withSvgIcons/icon.svg ./src/media/iconfont/appIcons/iconName.svg
-```
+```  
 2. Используем иконку на странице:
 ``` html
 <span class="icon icon_iconName"></span>
-```
+```  
 3. Пересоберем иконки и стили: `gulp iconfont && gulp stylus`.
 
 Вставка изображения на страницу в base64-кодировке:  
 1. Добавьте изображение в директорию `src/media/base64`:
 ``` bash
 $ cp ~/yourFolder/withImages/img.png ./src/media/base64/imgName.png
-```
+```  
 2. Подключим изображение в стилях:
 ``` stylus
 .someClassName
   background: base64('imgName.png') center center no-repeat
-```
+```  
 3. Пересоберем стили: `gulp stylus`.
 
 Работа со stylus-ом:  
@@ -187,15 +187,15 @@ $ cp ~/yourFolder/withImages/img.png ./src/media/base64/imgName.png
 1. Создадим новую папку с именем нового компонента в директории `src/components`:
 ``` bash
 $ mkdir ./src/components/newCompName
-```
+```  
 2. Добавим встраиваемые ресурсы(изображения, иконки, спрайты и др.) компоненту если это необходимо:
 ``` bash
 $ mkdir -p ./src/components/newCompName/media/{img,base64,sprites,iconfont}
-```
+```  
 3. Создадим и добавим js и stylus код компонента:
 ``` bash
 $ touch newCompName.js newCompName.styl
-```
+```  
 newCompName.js  
 ``` js
 import 'newCompName.styl'; // подключаем стили компонента
@@ -255,7 +255,7 @@ scaffolder [-h | --help] [-v | --version] [<имя команды>] [<имя с�
             dest: 'path/to/resultCompileTpl' // путь куда "ляжет" результат компиляции шаблона
         }
     }
-```
+```  
 3. Создадим шаблон для команды в директории `scaffolding`:
 ``` bash
 $ echo 'тело шаблона,...<%= author %>' > ./scaffolding/tplName.js.template
@@ -299,15 +299,15 @@ $ scaffolder js-node ./relative/path/to/my_new_file.js
 1. Создадим новую директорию в папке `scripts/git-hooks` с именем нашего хука(`post-commit`):
 ``` bash
 $ mkdir ./scripts/git-hooks/post-commit && cd !$
-```
+```  
 2. Создадим файл с произвольным именем:
 ``` bash
 $ echo '...код хука... exit 0' > someFileName.sh
-```
+```  
 3. Наделим этот файл правами на выполнение:
 ``` bash
 $ chmod +x someFileName.sh
-```
+```  
 4. Выполним инициализацию git-hook-ов в системе:
 ``` bash
 $ npm run git-hooks
